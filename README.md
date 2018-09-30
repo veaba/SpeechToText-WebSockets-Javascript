@@ -2,59 +2,62 @@
 
 # September 2018: New Microsoft Cognitive Services Speech SDK available
 
-We released a new Speech SDK supporting the new [Unified Speech Service](https://azure.microsoft.com/services/cognitive-services/speech-services). The new Speech SDK comes with support for Windows, Android, Linux, Javascript and iOS.
+> 源码来源见 https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript。以下文档为个人汉化，整天对着英文，烦！
 
-Please check out [Microsoft Cognitive Services Speech SDK](https://aka.ms/csspeech) for documentation, links to the download pages, and the samples.
+我们发布了一个支持新的统一语音服务的新的语音SDK。  [Unified Speech Service](https://azure.microsoft.com/services/cognitive-services/speech-services) 新的语音SDK附带Windows、Android、Linux、JavaScript和iOS的支持。
 
 
->NOTE: The content of this repository is supporting the [Bing Speech Service](https://docs.microsoft.com/en-us/azure/cognitive-services/Speech/Home), not the new [Unified Speech Service](https://azure.microsoft.com/services/cognitive-services/speech-services).
+请查看[Microsoft认知服务语音SDK](https://aka.ms/csspeech)以获得文档、到下载页面的链接和示例。
 
-## Prerequisites
 
-### Subscribe to the Speech Recognition API, and get a free trial subscription key
+> 注意：此存储库的内容支持[Bing语音服务]（https://docs.microsoft.com/en-us/azure/.-services/Speech/Home），而不是新的[统一语音服务]（https://azure.microsoft.com/services/.-services/.-services）。
 
-The Speech API is part of Cognitive Services. You can get free trial subscription keys from the [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, select **Get API Key** to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you can use either key.
+## 先决条件/Prerequisites
 
-**Note:** Before you can use Speech client libraries, you must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/).
+### 订阅语音识别API，并获得免费试用订阅密钥。先拿到key
 
-## Get started
+语音API是认知服务的一部分。您可以从[认知服务订阅]（https://azure.microsoft.com/try/.-services/）页面获得免费试用订阅密钥。选择语音API后，选择**get API密钥**来获得密钥。它返回主键和副键。两个键都绑定到相同的配额，所以可以使用任意一个密钥。
 
-In this section we will walk you through the necessary steps to load a sample HTML page. The sample is located in our [github repository](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). You can **open the sample directly** from the repository, or **open the sample from a local copy** of the repository. 
+**提示:** 在使用Speech客户端库之前，必须具有[订阅密钥]（https://azure.microsoft.com/try/.-services/）。
 
-**Note:** Some browsers block microphone access on un-secure origin. So, it is recommended to host the 'sample'/'your app' on https to get it working on all supported browsers. 
+## 开始Get started
 
-### Open the sample directly
+在本节中，我们将介绍加载HTML HTML页面的必要步骤。该示例位于我们的[Github存储库]（http://Github.com／Azure示例/ Script脚本文本WebSoSoSjavaScript）中。您可以从存储库中直接打开**，或者**从存储库的本地副本**打开示例。
 
-Acquire a subscription key as described above. Then open the [link to the sample](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). This will load the page into your default browser (Rendered using [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
+**Note:** 有些浏览器在不安全的来源上阻止麦克风访问。因此，建议在HTTPS上托管“示例”/“应用程序”，使其在所有支持的浏览器上工作。
 
-### Open the sample from a local copy
+### 打开示例 Open the sample directly
 
-To try the sample locally, clone this repository:
+获取如上所述的订阅密钥。然后打开[链接到样本]（HTTPS://HTMLPROVIEW.GITHUBIO/？）http://Github.com／Azure示例/ Script脚本文本Web套接字JavaScript /BLB/预览/Simult/Browser/Simult.html）。这将将页面加载到默认浏览器中（使用[htmlPreview]（https://github.com/htmlp./htmlp..github.com）呈现）。
+
+### 从本地副本打开示例 Open the sample from a local copy
+
+若要在本地尝试示例，请克隆此存储库：
 
 ```
 git clone https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
 ```
 
-compile the TypeScript sources and bundle/browserfy them into a single JavaScript file ([npm](https://www.npmjs.com/) needs to be installed on your machine). Change into the root of the cloned repository and run the commands:
+typescript编译的源和/ browserfy束成一个单一的他们的JavaScript文件（npm ] [（http：/ / / www.npmjs.com）需要被安装在你的机器）。变更为《根》和《运行库cloned commands：
 
 ```
 cd SpeechToText-WebSockets-Javascript && npm run bundle
 ```
 
-Open `samples\browser\Sample.html` in your favorite browser.
+打开 `samples\browser\Sample.html` 在你最喜欢的浏览器中。
 
-## Next steps
+## 下一步
 
-### Installation of npm package
+### 安装依赖
 
-An npm package of the Microsoft Speech Javascript Websocket SDK is available. To install the [npm package](https://www.npmjs.com/package/microsoft-speech-browser-sdk) run
+一个NPM包的微软语音JavaScript WebSu水套SDK是可用的。安装[NPM包]（HTTPS://www. nPMJS.COM/PACKEG/MICROSOFT-SPECHE-BROSELS-SDK）运行
 ```
 npm install microsoft-speech-browser-sdk
 ```
 
-### As a Node module
+### 作为node包使用
 
-If you're building a node app and want to use the Speech SDK, all you need to do is add the following import statement:
+如果您正在构建一个节点应用程序，并且希望使用语音SDK，那么您需要做的就是添加以下导入语句：
 
 ```javascript
 import * as SDK from 'microsoft-speech-browser-sdk';
@@ -139,9 +142,9 @@ function RecognizerStop(SDK, recognizer) {
 }
 ```
 
-### In a Browser, using Webpack
+### 在浏览器中，使用webpack
 
-Currently, the TypeScript code in this SDK is compiled using the default module system (CommonJS), which means that the compilation produces a number of distinct JS source files. To make the SDK usable in a browser, it first needs to be "browserified" (all the javascript sources need to be glued together). Towards this end, this is what you need to do:
+目前，这个SDK中的TypeScript代码是使用默认模块系统（CommonJS）编译的，这意味着编译会产生许多不同的JS源文件。为了使SDK在浏览器中可用，它首先需要“浏览器化”（所有的JavaScript源需要被粘在一起）。为此，这是你需要做的：
 
 1. Add `require` statement to you web app source file, for instance (take a look at [sample_app.js](samples/browser/sample_app.js)):
 
@@ -159,21 +162,21 @@ Currently, the TypeScript code in this SDK is compiled using the default module 
     <script src="../../distrib/speech.sdk.bundle.js"></script>
     ```
 
-### In a Browser, as a native ES6 module
+### 在浏览器中，作为本地ES6模块
 
 ...in progress, will be available soon
 
-### Token-based authentication
+### 基于令牌的认证
 
 To use token-based authentication, please launch a local node server, as described [here](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/master/samples/browser/README.md)
 
-## Docs
-The SDK is a reference implementation for the speech websocket protocol. Check the [API reference](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/API-reference-rest/bingvoicerecognition#websocket) and [Websocket protocol reference](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/API-reference-rest/websocketprotocol) for more details.
+## 文档
+SDK是语音WebSoSt协议的参考实现. Check the [API reference](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/API-reference-rest/bingvoicerecognition#websocket) and [Websocket protocol reference](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/API-reference-rest/websocketprotocol) for more details.
 
-## Browser support
+## 浏览器支持
 The SDK depends on WebRTC APIs to get access to the microphone and read the audio stream. Most of todays browsers(Edge/Chrome/Firefox) support this. For more details about supported browsers refer to [navigator.getUserMedia#BrowserCompatibility](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getUserMedia#Browser_compatibility)
 
 **Note:** The SDK currently depends on [navigator.getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getUserMedia#Browser_compatibility) API. However this API is in process of being dropped as browsers are moving towards newer [MediaDevices.getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) instead. The SDK will add support to the newer API soon.
 
-## Contributing
+## 贡献
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
